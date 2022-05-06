@@ -8,18 +8,30 @@ void Bullet::step()
 	
 	//testColisiones
 	
-        std::vector<Object*> *objects=System::scene->getCollisions(ENEMY_OBJ, this);
+        std::vector<Object*> *enemies=System::scene->getCollisions(ENEMY_OBJ, this);
 	
-        if(objects->size()>0)
+        if(enemies->size()>0)
 	{
 		System::scene->deleteObject(this);
-		for(auto it=objects->begin();it!=objects->end();it++)
+		for(auto it=enemies->begin();it!=enemies->end();it++)
 			System::scene->deleteObject(*it);
 	
-        }else	if((this->position.y>2.0f)||(this->position.y<-2.0f))
-	{
-		System::scene->deleteObject(this);
-	}
+        }
+
+		//TODO colisiones con player
+		std::vector<Object*>* objects = System::scene->getCollisions(SPACESHIP_OBJ, this);
+
+		if (objects->size() > 0)
+		{
+			System::scene->deleteObject(this);
+			for (auto it = objects->begin(); it != objects->end(); it++)
+				System::scene->deleteObject(*it);
+
+		}
+		else if ((this->position.y > 2.0f) || (this->position.y < -2.0f))
+		{
+			System::scene->deleteObject(this);
+		}
 }
 
 

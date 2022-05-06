@@ -11,8 +11,8 @@
 #include <string>
 
 
-#define ENEMY_OBJ 		0
-#define BULLET_OBJ 		1
-#define SPACESHIP_OBJ 	2
-#define CUBE_OBJ 		3
-#define BACKGROUND_OBJ	4
+#define ENEMY_OBJ 		0b1
+#define BULLET_OBJ 		0b10
+#define SPACESHIP_OBJ 	0b100
+#define CUBE_OBJ 		0b1000
+#define BACKGROUND_OBJ	0b10000

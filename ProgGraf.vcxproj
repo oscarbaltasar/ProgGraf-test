@@ -162,6 +162,7 @@
     <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="parryShield.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="spaceShip.cpp" />
     <ClCompile Include="object.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="mesh.h" />
+    <ClInclude Include="parryShield.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="spaceShip.h" />
     <ClInclude Include="object.h" />

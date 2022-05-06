@@ -62,6 +62,7 @@ int main(int argc, char** argv)
 	Object* enemySpawner = new EnemySpawner("triangle.trg");
 	enemySpawner->scale = glm::vec3(0.1f, 0.1f, 0.1f);
 	enemySpawner->position.y = 0.45f;
+	enemySpawner->position.z = -1.0f;
 	enemySpawner->rotation.z = glm::radians(180.0f);
 
 	Background* background = new Background("background.trg");

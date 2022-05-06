@@ -7,6 +7,7 @@
 class SpaceShip: public Object{
 private:
 	bool pressedT = false;
+	bool pressedY = false;
 	int fireType = 1;
 	// 0 = Normal, 1 = Shotgun, 2 = Double
 public:

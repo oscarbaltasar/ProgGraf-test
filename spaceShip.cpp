@@ -3,6 +3,7 @@
 #include "scene.h"
 #include "system.h"
 #include "bullet.h"
+#include "parryShield.h"
 
 void SpaceShip::step()
 {
@@ -42,6 +43,21 @@ void SpaceShip::step()
 	}
 	else {
 		pressedT = false;
+	}
+	if (InputManager::keys['Y']) {
+		if (!pressedY) {
+			pressedY = true;
+			Object* parryShield = new ParryShield("bullet.trg");
+			parryShield->position.x = this->position.x;
+			parryShield->position.y = this->position.y + 0.15f;
+			parryShield->position.z = this->position.z;
+			parryShield->rotation.z = this->rotation.z - glm::radians(180.0f);
+			parryShield->scale = glm::vec3(0.1f, 0.1f, 0.1);
+			System::scene->addObject(parryShield);
+		}
+	}
+	else {
+		pressedY = false;
 	}
 
 	
