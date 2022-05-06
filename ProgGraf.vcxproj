@@ -159,6 +159,7 @@
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="enemySpawner.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="shader.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemySpawner.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="item.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="spaceShip.h" />

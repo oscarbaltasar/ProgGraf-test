@@ -81,7 +81,7 @@ int main(int argc, char** argv)
 	
 	render->setupObject(background);
 	render->setupObject(enemy);
-	scene->addObject(enemySpawner);
+	render->setupObject(enemySpawner);
 	render->setupObject(triangle);
 
 	//Object* cube=new Cube("cube.trg");

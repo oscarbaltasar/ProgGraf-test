@@ -5,7 +5,7 @@ class Bullet: public Object{
 
 	
 public:
-	float direction=1.0f;
+	glm::vec2 direction= glm::vec2(0.0f, 1.0f);
 
 	Bullet():Object(){};
         Bullet(std::string fileName):Object(fileName){typeObject=BULLET_OBJ;};

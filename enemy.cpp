@@ -11,7 +11,7 @@ void Enemy::step()
 	if(random==0)
 	{
 		Bullet* bullet=new Bullet("bullet.trg");
-		bullet->direction=-1.0f;
+		bullet->direction= glm::vec2(0.0f,-1.0f);
 		bullet->position.x=this->position.x;
         bullet->position.y=this->position.y-0.25f;
 		bullet->scale=glm::vec3(0.1f,0.1f,0.1f);

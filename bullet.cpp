@@ -3,7 +3,8 @@
 
 void Bullet::step()
 {
-        this->position.y+=direction*0.01f;
+	this->position.x += direction.x * 0.01f;
+    this->position.y+=direction.y*0.01f;
 	
 	//testColisiones
 	
