@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 	enemy->position.y=0.45f;
 	enemy->rotation.z=glm::radians(180.0f);
 
-	Object* enemySpawner = new EnemySpawner("bullet.trg");
+	Object* enemySpawner = new EnemySpawner("triangle.trg");
 	enemySpawner->scale = glm::vec3(0.1f, 0.1f, 0.1f);
 	enemySpawner->position.y = 0.45f;
 	enemySpawner->rotation.z = glm::radians(180.0f);
