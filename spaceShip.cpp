@@ -25,6 +25,7 @@ void SpaceShip::step()
 			Object* bullet = new Bullet("bullet.trg");
 			bullet->position.x = this->position.x;
 			bullet->position.y = this->position.y + 0.15f;
+			bullet->rotation.z = this->rotation.z - glm::radians(180.0f);
 			bullet->scale = glm::vec3(0.1f, 0.1f, 0.1);
 			System::scene->addObject(bullet);
 			

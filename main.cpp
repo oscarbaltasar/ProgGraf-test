@@ -49,12 +49,12 @@ int main(int argc, char** argv)
 		std::cout << "ERROR iniciando glew\n";
 
 	InputManager::init(window);
-	Object* triangle = new SpaceShip("bullet.trg");
+	Object* triangle = new SpaceShip("triangle.trg");
 	triangle->scale=glm::vec3(0.1f,0.1f,0.1f);
 	triangle->position.y=-0.45f;
 	
 	
-	Object* enemy=new Enemy("bullet.trg");
+	Object* enemy=new Enemy("triangle.trg");
 	enemy->scale=glm::vec3(0.1f,0.1f,0.1f);
 	enemy->position.y=0.45f;
 	enemy->rotation.z=glm::radians(180.0f);
