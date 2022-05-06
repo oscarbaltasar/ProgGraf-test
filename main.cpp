@@ -12,7 +12,7 @@
 #include "enemy.h"
 #include "cube.h"
 #include "background.h"
-
+#include "enemySpawner.h"
 
 
 
@@ -59,6 +59,11 @@ int main(int argc, char** argv)
 	enemy->position.y=0.45f;
 	enemy->rotation.z=glm::radians(180.0f);
 
+	Object* enemySpawner = new EnemySpawner("bullet.trg");
+	enemySpawner->scale = glm::vec3(0.1f, 0.1f, 0.1f);
+	enemySpawner->position.y = 0.45f;
+	enemySpawner->rotation.z = glm::radians(180.0f);
+
 	Background* background = new Background("background.trg");
 	background->scale = glm::vec3(1.0f, 1.0f, 1.0f);
 	background->position.y = 0.0f;
@@ -72,9 +77,11 @@ int main(int argc, char** argv)
 	scene->addObject(background);
 	scene->addObject(triangle);
 	scene->addObject(enemy);
+	scene->addObject(enemySpawner);
 	
 	render->setupObject(background);
 	render->setupObject(enemy);
+	scene->addObject(enemySpawner);
 	render->setupObject(triangle);
 
 	//Object* cube=new Cube("cube.trg");
