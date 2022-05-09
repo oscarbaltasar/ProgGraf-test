@@ -13,8 +13,9 @@ void Bullet::step()
         if(enemies->size()>0)
 	{
 		System::scene->deleteObject(this);
-		for(auto it=enemies->begin();it!=enemies->end();it++)
+		for (auto it = enemies->begin(); it != enemies->end(); it++) {
 			System::scene->deleteObject(*it);
+		}
 	
         }
 
@@ -24,8 +25,10 @@ void Bullet::step()
 		if (objects->size() > 0)
 		{
 			System::scene->deleteObject(this);
-			for (auto it = objects->begin(); it != objects->end(); it++)
+			for (auto it = objects->begin(); it != objects->end(); it++) {
+				(*it)->hitResponse();
 				System::scene->deleteObject(*it);
+			}
 
 		}
 		else if ((this->position.y > 2.0f) || (this->position.y < -2.0f))

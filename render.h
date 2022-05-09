@@ -25,6 +25,6 @@ public:
 	void drawObject(Object* obj);
 	void drawScene(Scene* scene);
 	void setupObject(Object* obj);
-	void drawObjectGL4(Object* obj);
+	void drawObjectGL4(Object* obj, Scene* scene);
 };
 

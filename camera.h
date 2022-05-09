@@ -19,5 +19,6 @@ public:
 	void computeMatrix();
 	glm::mat4 getMatrix();
 	glm::mat4 getProjectionMatrix();
+	glm::vec4 camPos();
 
 };

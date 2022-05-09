@@ -66,3 +66,7 @@ void Object::step(){
 		*/
 
 }
+
+void Object::hitResponse() {
+
+}

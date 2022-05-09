@@ -40,10 +40,36 @@ glm::mat4 Camera::getProjectionMatrix(){
 
 }
 
+glm::vec4 Camera::camPos()
+{
+	glm::vec4 pos = glm::vec4(position.x, position.y, position.z, 1.0f);
+	return pos;
+}
+
 void Camera::step()
 {
+	if (InputManager::keys['F'])
+	{
+		position.x -= 0.01f;
+		lookAt.x -= 0.01f;
+	}
 
-	
+	if (InputManager::keys['H'])
+	{
+		position.x += 0.01f;
+		lookAt.x += 0.01f;
+	}
+	if (InputManager::keys['T'])
+	{
+		position.y += 0.01f;
+		lookAt.y += 0.01f;
+	}
+
+	if (InputManager::keys['G'])
+	{
+		position.y -= 0.01f;
+		lookAt.y -= 0.01f;
+	}
 
 }
 

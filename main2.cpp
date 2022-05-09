@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include "common.h"
 #include <vector>
@@ -49,19 +50,48 @@ int main(int argc, char** argv)
 		std::cout << "ERROR iniciando glew\n";
 
 	InputManager::init(window);
-	Object* cube = new Cube("cube.trg");
-	cube->scale = glm::vec3(0.5f, 0.5f, 0.5f);
-	cube->position.z=3.0f;
+	Object* triangle = new SpaceShip("triangle.trg");
+	triangle->scale=glm::vec3(0.1f,0.1f,0.1f);
+	triangle->position.y=-0.45f;
+	
+	
+	Object* enemy=new Enemy("triangle.trg");
+	enemy->scale=glm::vec3(0.1f,0.1f,0.1f);
+	enemy->position.y=0.45f;
+	enemy->rotation.z=glm::radians(180.0f);
+
+	Object* enemySpawner = new EnemySpawner("triangle.trg");
+	enemySpawner->scale = glm::vec3(0.1f, 0.1f, 0.1f);
+	enemySpawner->position.y = 0.45f;
+	enemySpawner->position.z = -1.0f;
+	enemySpawner->rotation.z = glm::radians(180.0f);
+
+	Background* background = new Background("background.trg");
+	background->scale = glm::vec3(1.0f, 1.0f, 1.0f);
+	background->position.y = 0.0f;
+	background->position.z = -0.01f;
 	
 
 	Render* render=new Render();
 	Scene* scene=new Scene();
 	System::scene=scene;
-	//scene->setCamera(new Camera(glm::vec3(0,0,0.5),glm::vec3(0,0,0),perspective));
-	scene->setCamera(new Camera(glm::vec3(0, 0, 6.0), glm::vec3(0, 0, 0), perspective));
-	scene->addObject(cube);
+	scene->setCamera(new Camera(glm::vec3(0,0,0.5),glm::vec3(0,0,0),perspective));
+	scene->addObject(background);
+	scene->addObject(triangle);
+	scene->addObject(enemy);
+	scene->addObject(enemySpawner);
 	
-	render->setupObject(cube);
+	render->setupObject(background);
+	render->setupObject(enemy);
+	render->setupObject(enemySpawner);
+	render->setupObject(triangle);
+
+	//Object* cube=new Cube("cube.trg");
+	//cube->scale=glm::vec3(0.5f,0.5f,0.5f);
+	//cube->position.z=3.0f;
+
+	//render->setupObject(cube);
+	//scene->addObject(cube);
 
 	while(!glfwWindowShouldClose(window))
 	{	
@@ -79,3 +109,4 @@ int main(int argc, char** argv)
 	return 0;
 
 }
+*/

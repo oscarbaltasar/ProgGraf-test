@@ -7,7 +7,7 @@
 
 void SpaceShip::step()
 {
-
+	parryCoolDown--;
 
 	if(InputManager::keys['A'])
 	{
@@ -44,10 +44,12 @@ void SpaceShip::step()
 	else {
 		pressedT = false;
 	}
-	if (InputManager::keys['Y']) {
+	if (parryCoolDown <= 0 && InputManager::keys['Y']) {
 		if (!pressedY) {
+			parryCoolDown += 11;
 			pressedY = true;
-			Object* parryShield = new ParryShield("bullet.trg");
+			ParryShield* parryShield = new ParryShield("bullet.trg");
+			parryShield->setPlayer(this);
 			parryShield->position.x = this->position.x;
 			parryShield->position.y = this->position.y + 0.15f;
 			parryShield->position.z = this->position.z;
@@ -63,6 +65,11 @@ void SpaceShip::step()
 	
 }
 
+void SpaceShip::hitResponse()
+{
+	//printf("Fin del juego");
+}
+
 void SpaceShip::shoot(float x, float y, float rot, glm::vec3 scale, glm::vec2 dir) {
 	Bullet* bullet = new Bullet("bullet.trg");
 	bullet->position.x = this->position.x + x;
@@ -71,4 +78,11 @@ void SpaceShip::shoot(float x, float y, float rot, glm::vec3 scale, glm::vec2 di
 	bullet->scale = scale;
 	bullet->direction = dir;
 	System::scene->addObject(bullet);
+}
+
+void SpaceShip::addCoolDown(int i)
+{
+	if (parryCoolDown < 0)
+		parryCoolDown = 0;
+	parryCoolDown += i;
 }

@@ -28,6 +28,7 @@ public:
 	void computeMatrix();
 	void updateCollider();
 	virtual void step();
+	virtual void hitResponse();
 	
 	
 };

@@ -58,7 +58,7 @@ void Render::drawObject(Object* obj){
 
 
 
-void Render::drawObjectGL4(Object* obj){
+void Render::drawObjectGL4(Object* obj, Scene *scene){
 	obj->computeMatrix();
 	
 	bufferObject_t bo=boList[obj->id];
@@ -88,7 +88,8 @@ void Render::drawObjectGL4(Object* obj){
 
 	
 	glm::vec4 lightPos(0.0f, 0.0f, 6.0f, 1.0f);
-	glm::vec4 userPos(0.0f, 0.0f, 0.5f, 1.0f);
+	Camera* cam = scene->getCamera();
+	glm::vec4 userPos = cam->camPos();
 	
 	glUniformMatrix4fv(0,1,GL_FALSE,&(proj*view*obj->getMatrix())[0][0]);	
 
@@ -144,7 +145,7 @@ void Render::drawScene(Scene* scene)
 		it!=objList->end();
 		it++)
 	{
-		drawObjectGL4(it->second);
+		drawObjectGL4(it->second, scene);
 	}
 
 }
