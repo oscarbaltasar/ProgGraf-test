@@ -1,4 +1,3 @@
-/*
 #include <iostream>
 #include "common.h"
 #include <vector>
@@ -76,6 +75,8 @@ int main(int argc, char** argv)
 	Scene* scene=new Scene();
 	System::scene=scene;
 	scene->setCamera(new Camera(glm::vec3(0,0,0.5),glm::vec3(0,0,0),perspective));
+	scene->addLight(new Light(glm::vec4(-3.0, 0, 6.0, 1), glm::vec4(0, 0, 0, 1)));
+	scene->addLight(new Light(glm::vec4(3.0, 0, 6.0, 1), glm::vec4(0, 0, 0, 1)));
 	scene->addObject(background);
 	scene->addObject(triangle);
 	scene->addObject(enemy);
@@ -109,4 +110,3 @@ int main(int argc, char** argv)
 	return 0;
 
 }
-*/

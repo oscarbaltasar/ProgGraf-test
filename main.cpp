@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include "common.h"
 #include <vector>
@@ -13,6 +14,7 @@
 #include "cube.h"
 #include "background.h"
 #include "enemySpawner.h"
+#include "light.h"
 
 
 
@@ -58,6 +60,8 @@ int main(int argc, char** argv)
 	Scene* scene=new Scene();
 	System::scene=scene;
 	//scene->setCamera(new Camera(glm::vec3(0,0,0.5),glm::vec3(0,0,0),perspective));
+	scene->addLight(new Light(glm::vec4(-3.0, 0, 6.0, 1),glm::vec4(0, 0, 0, 1)));
+	scene->addLight(new Light(glm::vec4(3.0, 0, 6.0, 1), glm::vec4(0, 0, 0, 1)));
 	scene->setCamera(new Camera(glm::vec3(0, 0, 6.0), glm::vec3(0, 0, 0), perspective));
 	scene->addObject(cube);
 	
@@ -79,3 +83,4 @@ int main(int argc, char** argv)
 	return 0;
 
 }
+*/

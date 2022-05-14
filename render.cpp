@@ -1,5 +1,6 @@
 #include "render.h"
 #include "background.h"
+#include "system.h"
 
 
 Render::Render(){
@@ -87,9 +88,13 @@ void Render::drawObjectGL4(Object* obj, Scene *scene){
 
 
 	
-	glm::vec4 lightPos(0.0f, 0.0f, 6.0f, 1.0f);
+	Light light1 = scene->getLight(0);
+	Light light2 = scene->getLight(1);
+	
 	Camera* cam = scene->getCamera();
 	glm::vec4 userPos = cam->camPos();
+	//glm::vec4 userPos = glm::vec4(0, 0, 6.0, 1);
+
 	
 	glUniformMatrix4fv(0,1,GL_FALSE,&(proj*view*obj->getMatrix())[0][0]);	
 
@@ -99,7 +104,8 @@ void Render::drawObjectGL4(Object* obj, Scene *scene){
 	matT = glm::rotate(matT, obj->rotation.z, glm::vec3(0, 0, 1.0f));
 
 	glUniformMatrix4fv(1,1,GL_FALSE,&(matT)[0][0]);	
-	glUniform4fv(2,1,&lightPos[0]);
+	glUniform4fv(2,1, &light1.lightPos[0]);
+	glUniform4fv(7,1, &light2.lightPos[0]);
 	glUniform4fv(3,1,&userPos[0]);
 
 	int textureUnit = 0;
@@ -114,9 +120,11 @@ void Render::drawObjectGL4(Object* obj, Scene *scene){
 	}
 	glUniform1f(5, 1.0f);
 	glUniform2fv(6,1, &scroll[0]);
-
+	/*
+	glEnable(GL_ALPHA_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	*/
 
 	glDrawElements(GL_TRIANGLES, obj->mesh->faceList->size(), GL_UNSIGNED_INT,nullptr);
 }

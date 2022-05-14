@@ -38,6 +38,19 @@ void Scene::addObject(Object* obj){
         obj->computeMatrix();
 }
 
+void Scene::addLight(Light* light) {
+	for (int i = 0; i < 2; i++) {
+		if (lightList[i] == NULL) {
+			lightList[i] = light;
+			return;
+		}
+	}
+}
+
+Light Scene::getLight(int i) {
+	return *lightList[i];
+}
+
 
 void Scene::step(double timeStep)
 {
