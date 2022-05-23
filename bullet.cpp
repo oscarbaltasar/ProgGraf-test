@@ -1,5 +1,6 @@
 #include "bullet.h"
 #include "system.h"
+#include "item.h"
 
 void Bullet::step()
 {
@@ -14,6 +15,16 @@ void Bullet::step()
 	{
 		System::scene->deleteObject(this);
 		for (auto it = enemies->begin(); it != enemies->end(); it++) {
+			int random = ((int)rand()) % 100;
+			if (random <= 5) {
+				Item* item = new Item("item.trg");
+				item->direction = glm::vec2(0.0f, -0.5f);
+				item->rotation.z = (*it)->rotation.z;
+				item->position.x = (*it)->position.x;
+				item->position.y = (*it)->position.y - 0.25f;
+				item->scale = glm::vec3(0.1f, 0.1f, 0.1f);
+				System::scene->addObject(item);
+			}
 			System::scene->deleteObject(*it);
 		}
 	

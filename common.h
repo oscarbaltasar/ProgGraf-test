@@ -16,3 +16,4 @@
 #define SPACESHIP_OBJ 	0b100
 #define CUBE_OBJ 		0b1000
 #define BACKGROUND_OBJ	0b10000
+#define ITEM_OBJ		0b100000

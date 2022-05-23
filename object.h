@@ -29,6 +29,6 @@ public:
 	void updateCollider();
 	virtual void step();
 	virtual void hitResponse();
-	
+	virtual void setFireType(int fire);
 	
 };

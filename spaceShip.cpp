@@ -19,7 +19,7 @@ void SpaceShip::step()
                 position.x+=0.01f;
 	}
 	
-	if(InputManager::keys['T'])
+	if(InputManager::keys[' '])
 	{ 	
 		if (!pressedT) {
 			pressedT = true;
@@ -35,6 +35,11 @@ void SpaceShip::step()
 				this->shoot(0, 0.005f, 0, scale, glm::vec2(0.0f, 1.5f));
 				this->shoot(0.005f, 0, glm::radians(-5.0f), scale, glm::vec2(0.25f, 1.5f));
 				this->shoot(-0.005f, 0, glm::radians(5.0f), scale, glm::vec2(-0.25f, 1.5f));
+				break;
+			case 2:
+				scale = glm::vec3(0.075f, 0.075f, 0.075);
+				this->shoot(0.02f, 0, 0, scale, glm::vec2(0.0f, 1.0f));
+				this->shoot(-0.02f, 0, 0, scale, glm::vec2(0.0f, 1.0f));
 				break;
 			}
 			
@@ -85,4 +90,8 @@ void SpaceShip::addCoolDown(int i)
 	if (parryCoolDown < 0)
 		parryCoolDown = 0;
 	parryCoolDown += i;
+}
+
+void SpaceShip::setFireType(int fire) {
+	fireType = fire;
 }

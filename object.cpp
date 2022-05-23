@@ -70,3 +70,7 @@ void Object::step(){
 void Object::hitResponse() {
 
 }
+
+void Object::setFireType(int fire) {
+
+}
